@@ -55,4 +55,14 @@ class UserController extends Controller
             return $response;
         }
     }
+
+    public function logoutUser(Request $request){
+
+        $request->user()->tokens()->delete();
+        $response = [
+            'sucess'=>false,
+            'error' => "Invalid Credentials"
+        ];
+        return $response;
+    }
 }
