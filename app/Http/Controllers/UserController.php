@@ -60,8 +60,8 @@ class UserController extends Controller
 
         $request->user()->tokens()->delete();
         $response = [
-            'sucess'=>false,
-            'error' => "Invalid Credentials"
+            'sucess'=>true,
+            'message'=>"LogOut User",
         ];
         return $response;
     }

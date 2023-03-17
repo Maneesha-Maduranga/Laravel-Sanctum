@@ -30,5 +30,5 @@ Route::middleware('auth:sanctum')->post('/auth/logout', [UserController::class,'
 Route::middleware('auth:sanctum')->post('/blogs', [BlogController::class,'createBlog']);
 Route::get('/blogs', [BlogController::class,'getAllBlogs']);
 Route::get('/blogs/{blog}', [BlogController::class,'getSingleBlog']);
-Route::middleware('auth:sanctum')->delete('/blogs/{blog}', [BlogController::class,'deleteBlog']);
-Route::middleware('auth:sanctum')->put('/blogs/{blog}', [BlogController::class,'updateBlog']);
+Route::middleware('auth:sanctum','can:delete,blog')->delete('/blogs/{blog}', [BlogController::class,'deleteBlog']);
+Route::middleware('auth:sanctum','can:update,blog')->put('/blogs/{blog}', [BlogController::class,'updateBlog']);
